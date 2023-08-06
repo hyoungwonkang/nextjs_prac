@@ -2,15 +2,9 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import Highlight from "../components/Highlight";
+import IndexPage from "../components/IndexPage";
 
 export default function Home() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   return (
     <div className={styles.container}>
       <Head>
@@ -29,12 +23,7 @@ export default function Home() {
           <code className={styles.code}>pages/index.js</code>
         </p>
 
-        <div>
-          {isClient && (
-            <Highlight code={"console.log('Hello, world!')"} language="js" />
-          )}
-        </div>
-
+        <IndexPage />
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
