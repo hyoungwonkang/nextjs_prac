@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import IndexPage from "../components/IndexPage";
+import DynamicPage from "../components/DynamicPage";
 
 export default function Home() {
   return (
@@ -22,6 +23,8 @@ export default function Home() {
           Get started by editing{" "}
           <code className={styles.code}>pages/index.js</code>
         </p>
+
+        <DynamicPage />
 
         <IndexPage />
         <div className={styles.grid}>
