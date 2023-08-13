@@ -5,7 +5,6 @@ import styles from "../styles/Home.module.css";
 import IndexPage from "../components/IndexPage";
 import DynamicPage from "../components/DynamicPage";
 import Navbar from "../components/Navbar";
-import Readpost from "../components/ReadPost";
 
 export default function Home() {
   return (
@@ -25,7 +24,6 @@ export default function Home() {
           <code className={styles.code}>pages/index.js</code>
         </p>
         <Navbar />
-        <Readpost />
         <DynamicPage />
 
         <IndexPage />
