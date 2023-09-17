@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Widget from "../components/Widget";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import IndexPage from "../components/IndexPage";
@@ -9,6 +10,7 @@ import Navbar from "../components/Navbar";
 import CustomImage from "../components/Image";
 
 export default function IndexPage2() {
+  //IndexPage가 있으므로 2를 생성
   return (
     <>
       <Head>
@@ -18,6 +20,9 @@ export default function IndexPage2() {
         <Link href="/about" passHref>
           About us
         </Link>
+      </div>
+      <div>
+        <Widget pageName="index" />
       </div>
     </>
   );
