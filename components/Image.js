@@ -1,24 +1,18 @@
 import Image from "next/image";
 
-function ImagePage() {
+const loader = ({ src, width, quality }) => {
+  return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
+};
+function CustomImage() {
   return (
-    <div>
-      <div
-        style={{
-          width: 500,
-          height: 200,
-          position: "relative",
-        }}
-      >
-        <Image
-          src="https://recipe1.ezmember.co.kr/cache/recipe/2021/05/30/e457e303db8b14a604175933e15826051.jpg"
-          layout="fill"
-          objectFit="cover"
-          alt="장조림 버터 계란 비빔밥"
-        />
-      </div>
-    </div>
+    <Image
+      loader={loader}
+      src="/345142f9-a6a0-47fc-a8e2-dd0d11ed2f65.webp"
+      alt="thecartgolf"
+      width={350}
+      height={540}
+    />
   );
 }
 
-export default ImagePage;
+export default CustomImage;

@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 import IndexPage from "../components/IndexPage";
 import DynamicPage from "../components/DynamicPage";
 import Navbar from "../components/Navbar";
-import ImagePage from "../components/Image";
+import CustomImage from "../components/Image";
 
 export default function Home() {
   return (
@@ -26,7 +26,7 @@ export default function Home() {
         </p>
         <Navbar />
         <DynamicPage />
-        <ImagePage />
+        <CustomImage />
         <IndexPage />
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
