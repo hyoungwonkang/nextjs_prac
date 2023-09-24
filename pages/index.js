@@ -15,6 +15,7 @@ export default function IndexPage2() {
     <>
       <Head>
         <title> Welcome to my Next.js website </title>
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <div>
         <Link href="/about" passHref>
