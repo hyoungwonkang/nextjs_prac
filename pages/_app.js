@@ -1,39 +1,19 @@
-import { useState } from "react";
-import ThemeContext from "../components/themeContext";
-import Navbar2 from "../components/Navbar";
-import "../styles/globals.css";
+import Head from "next/head";
+import { ApolloProvider } from "@apollo/client";
+import { useApollo } from "../lib/apollo";
 
-const themes = {
-  dark: {
-    background: "black",
-    color: "white",
-  },
-  light: {
-    background: "white",
-    color: "black",
-  },
-};
-
-function MyApp({ Component, pageProps }) {
-  const [theme, setTheme] = useState("light");
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
+export default function App({ Component, pageProps }) {
+  const apolloClient = useApollo(pageProps.initialApolloState);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div
-        style={{
-          width: "100%",
-          minHeight: "100vh",
-          ...themes[theme],
-        }}
-      >
-        <Navbar2 />
-        <Component {...pageProps} />
-      </div>
-    </ThemeContext.Provider>
+    <ApolloProvider client={apolloClient}>
+      <Head>
+        <link
+          href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+          rel="stylesheet"
+        />
+      </Head>
+      <Component {...pageProps} />
+    </ApolloProvider>
   );
 }
-
-export default MyApp;
