@@ -152,13 +152,13 @@
 }
 
 .button-success {
-  composes: button-default;
+  @extend .button-default;
   background-color: green;
   color: white;
 }
 
 .button-danger {
-  composes: button-default;
+  @extend .button-default;
   background-color: red;
   color: white;
 }
