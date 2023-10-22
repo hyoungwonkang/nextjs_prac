@@ -7,4 +7,9 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = {
+  sassOptions: {
+    outputStyle: "compressed",
+    // ...여기에 필요한 SASS 설정을 편집함.
+  },
+};
