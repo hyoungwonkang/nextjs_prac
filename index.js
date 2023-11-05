@@ -1,27 +1,15 @@
-const { parse } = require("url");
-const express = require("express");
-const next = require("next");
+const fastify = require("fastify")();
 
-const dev = process.env.NODE_ENV !== "production";
-const app = next({ dev });
+fastify.register(require("@fastify/nextjs")).after(() => {
+  fastify.next("/");
+  fastify.next("/about");
+  fastify.next("/greet/:user");
+  fastify.getDefaultRoute("contacts", (req, reply) => {
+    reply.type("html").send("<h1>Contacts page</h1>");
+  });
+});
 
-async function main() {
-  try {
-    server
-      .get("/", (req, res) => {
-        res.send("Hello World!");
-      })
-      .get("/about", (req, res) => {
-        const { query } = parse(req.url, true);
-        app.render(req, res, "/about", query);
-      })
-      .get("/api/greet", (req, res) => {
-        res.json({ name: req.query?.name ?? "unknown" });
-      })
-      .listen(3000, () => console.log("server ready"));
-  } catch (err) {
-    console.log(err.stack);
-  }
-}
-
-main();
+fastify.listen({ port: 3000 }, () => {
+  console.log("Server listening on http://localhost:3000");
+});
+// fastify가 문제가 있는 듯 함. 에러 없는데도 local3000에서 화면 안나 옴
