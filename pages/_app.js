@@ -2,6 +2,8 @@ import { ThemeProvider } from "next-themes";
 import "tailwindcss/tailwind.css";
 import TopBar from "../components/TopBar";
 
+export const reportWebVitals = (metrics) => console.log(metrics);
+
 function App({ Component, pageProps }) {
   return (
     // attribute="class"를 지정해서
