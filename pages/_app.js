@@ -2,7 +2,7 @@ import { ThemeProvider } from "next-themes";
 import "tailwindcss/tailwind.css";
 import TopBar from "../components/TopBar";
 
-export const reportWebVitals = (metrics) => console.log(metrics);
+export const reportWebVitals = (metrics) => sendToGoogleAnalytics(metrics);
 
 function App({ Component, pageProps }) {
   return (
