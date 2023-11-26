@@ -1,10 +1,21 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useAuth } from "../lib/hook/auth";
 import styles from '../styles/app.module.css'
 
 export default function Home() {
   const [logginError, setLoginError] = useState(null);
   const router = useRouter();
+  const {loading, loggedIn} = useAuth();
+
+  if (loading){
+    return <p>Loading...</p>
+  }
+
+  if (!loading && loggedIn) {
+    router.push('/protected-route');
+    return null;
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
