@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.8.4",
+    "@auth0/nextjs-auth0": "^2.6.1",
     "@fastify/nextjs": "^10.0.1",
     "@headlessui/react": "^1.7.17",
     "classnames": "^2.3.2",
