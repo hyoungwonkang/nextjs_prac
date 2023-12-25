@@ -6,7 +6,7 @@
 ## stripe
 ## chakra-ui/react
 
-# 스터디시 사용 한 기술 스택
+# 스터디 중 사용 한 기술 스택
 ## apollo/client
 ## auth0/nextjs-auth0
 ## isomorphic-unfetch
