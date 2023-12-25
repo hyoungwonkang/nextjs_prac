@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import CartContext from "../lib/context/Cart";
 import graphql from "../lib/graphql";
 import getProductById from "../lib/graphql/queries/getProductById";
+import getStripe from "../lib/stripe";
 
 export default function Cart() {
     const { items } = useContext(CartContext);
@@ -33,6 +34,23 @@ export default function Cart() {
         .map((id)=>
             products.find((product) => product.id === id).price
             * (items[id] / 100)).reduce((x,y)=>x+y).toFixed(2);
+    }
+
+    async function handlePayment() {
+        const stripe = await getStripe();
+        const res = await fetch('/api/checkout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                items,
+            }),
+        });
+        const { session } = await res.json();
+        await stripe.redirectToCheckout({
+            sessionId: session.id,
+        });
     }
 
     return (
@@ -75,7 +93,7 @@ export default function Cart() {
                             <Text fontSize="xl" fontWeight="bold">
                                 Total: €{getTotal()}
                             </Text>
-                            <Button colorScheme="blue">
+                            <Button colorScheme="blue" onClick={handlePayment}>
                                 결제하기
                             </Button>
                         </Flex>

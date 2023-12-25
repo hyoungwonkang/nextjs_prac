@@ -36,7 +36,7 @@ export async function getStaticProps({ params }) {
 function SelectQuantity(props) {
     const quantity = [ ...Array.from({ length: 10 })];
     return (
-        <Select placeholder="Quantity"
+        <Select placeholder="수량"
             onChange={(event) => props.onChange(event.target.value)}>
             {quantity.map((_, i) => (
                 <option key={i + 1} value={i + 1}>
