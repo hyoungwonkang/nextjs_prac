@@ -16,4 +16,3 @@
 ## tailwindcss
 ## postcss
 ## autoprefixer
-## typescript
